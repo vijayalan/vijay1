@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>Impress</title>
+    <style>
+        body {
+            background-color: rgb(250, 207, 216);
+        }
+
+        p {
+            text-align: center;
+            font-size: 50px;
+            font-family: Candara, Oswald;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+            border: 1;
+            border-radius: 4px;
+            width: 35%;
+        }
+
+        #yes {
+            position: fixed;
+            border: none;
+            width: 200px;
+            height: 100px;
+            font-size: 50px;
+            border-radius: 2px;
+            background: rgba(0, 255, 255, 0.5);
+            top: 700px;
+            left: 600px;
+            transform: translate(-50%, -50%);
+        }
+
+        #yes:hover {
+            color: #50d1c0;
+            background: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        #NO {
+            position: absolute;
+            border: none;
+            width: 200px;
+            height: 100px;
+            font-size: 50px;
+            border-radius: 2px;
+            background: rgba(0, 255, 255, 0.5);
+            top: 750px;
+            left: 200px;
+            transition: all 0.3s ease; /* Add transition for smooth movement */
+        }
+    </style>
+</head>
+<body>
+    <p>I regret the mistake I made and <br>hope you can find it in your heart to forgive me?</p>
+    <img src="https://media.tenor.com/zGm5acSjHCIAAAAM/cat-begging.gif">
+    <button id="yes">YES</button>
+    <button id="NO">NO</button>
+
+    <script>
+        const buttonNo = document.getElementById('NO');
+        const buttonYes = document.getElementById('yes');
+
+        // Redirect to index.html when the "YES" button is clicked
+        buttonYes.addEventListener('click', function() {
+            window.location.href = 'letter.html'; // Change this to your actual index file path
+        });
+
+        buttonNo.addEventListener('click', function() {
+            // Get random positions within the window size
+            const xPos = Math.random() * (window.innerWidth - buttonNo.offsetWidth);
+            const yPos = Math.random() * (window.innerHeight - buttonNo.offsetHeight);
+            
+            // Set new position
+            buttonNo.style.left = `${xPos}px`;
+            buttonNo.style.top = `${yPos}px`;
+        });
+    </script>
+</body>
+</html>
